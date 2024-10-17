@@ -1,0 +1,38 @@
+upload:
+  dir: C:/Users/User/Desktop/test/
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRESQL_HOST:localhost}:${POSTGRESQL_PORT:5432}/${POSTGRESQL_DB:test}
+    username: ${POSTGRESQL_USERNAME:username}
+    password: ${POSTGRESQL_PASSWORD:password}
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    open-in-view: false
+  liquibase:
+    change-log: classpath:/liquibase/db.changelog-master.yml
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 200MB
+      max-file-size: 200MB
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: simple
+    publisher-returns: true
+    template:
+      mandatory: true
+video:
+  processing:
+    max-retries: 10
+    retry-delay-ms: 5000 #5 seconds

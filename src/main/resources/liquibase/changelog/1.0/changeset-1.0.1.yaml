@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1729090423939-1
+      author: User
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_videos
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: post_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: video_path
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: video_name
+                  type: VARCHAR(255)
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+              - column:
+                  name: created_date
+                  type: DATETIME
+              - column:
+                  name: updated_date
+                  type: DATETIME
+            tableName: videos
+
